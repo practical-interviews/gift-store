@@ -14,9 +14,9 @@ Runnable in two spring profiles:
 
 Please make sure to run the application in both profiles either in your IDE or Terminal.  
 
-### Rest API Services
-- [Product Services](postman/Order APIs.postman_collection.json)
-- [Order Services](postman/Product APIs.postman_collection.json)
+### Rest APIs
+- [Product Services](postman/Order-APIs.postman_collection.json)
+- [Order Services](postman/Product-APIs.postman_collection.json)
 
 ### UI 
 - Access Prime Gift-Stroe Management UI at: `http://localhost:8080/store/products`
