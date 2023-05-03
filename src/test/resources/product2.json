@@ -1,0 +1,7 @@
+{
+  "id": "12345",
+  "name": "mock-prod-name",
+  "description": "mock-prod-desc",
+  "price": 5,
+  "quantity": 1
+}

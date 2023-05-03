@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<div th:replace="fragments/meta-info :: meta-info"></div>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container-fluid mt-lg-4">
+    <h2 class="text-center">[[${pageTitle}]]</h2>
+
+    <div class="my-3">
+        <form th:action="@{/orders/save}" method="post" enctype="multipart/form-data" th:object="${order}"
+              style="max-width: 550px; margin: 0 auto">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="productID">Product Id</label>
+                <div class="col-sm-9">
+                    <select class="form-control" th:field="*{productId}" id="productID" name="productID"
+                            th:required="required">
+                        <option value="">Select Product</option>
+                        <option th:each="product : ${products}"
+                                th:value="${product.id}"
+                                th:text="${product.name}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="quantity">Quantity</label>
+                <div class="col-sm-9">
+                    <input type="number" th:field="*{quantity}" required min="1" maxlength="100" th:required="required"
+                           class="form-control" id="quantity"/>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <input type="submit" value="Save" class="btn btn-primary btn-sm mr-2"/>
+                <input type="button" value="Cancel" id="btnCancel" class="btn btn-secondary btn-sm"/>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnCancel").on("click", function () {
+            window.location = "[[@{/orders}]]";
+        });
+    });
+</script>
+
+</body>
+
+</html>

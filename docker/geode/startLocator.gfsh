@@ -1,0 +1,3 @@
+start locator --port=10331
+configure pdx --read-serialized=true
+start server --name=server --server-port=41001 --locators=localhost[10331]

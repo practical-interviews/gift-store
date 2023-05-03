@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testDb
+    username: myh2
+  h2:
+    console:
+      enabled: true
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+---
+spring.profiles: geode.client
+server:
+  port: 8080
+  servlet:
+    context-path: /store
+
+---
+spring.profiles: geode.server
+server:
+  port: 7071
+
+---
+spring.profiles: geode.manager
+server:
+  port: 7070
+  tomcat:
+    mbeanregistry:
+      enabled: true
